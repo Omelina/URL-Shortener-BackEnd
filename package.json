@@ -1,0 +1,32 @@
+{
+  "name": "url-shortener-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "devStart": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Omelina/URL-Shortener-BackEnd.git"
+  },
+  "keywords": [
+    "URL",
+    "Shortener",
+    "Back-End"
+  ],
+  "author": "Omelina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Omelina/URL-Shortener-BackEnd/issues"
+  },
+  "homepage": "https://github.com/Omelina/URL-Shortener-BackEnd#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.8"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  }
+}
