@@ -47,7 +47,7 @@ usersCtrl.singin = async (req, res) => {
             const match = newUser.matchPassword(password);
             const token = jwt.sign({_id: u._id},password);
 
-            res.cookie('t',token);
+            res.cookie('t',token, {httpOnly: true});
 
             const {_id, name, email} = u;
 			if (match) {
@@ -70,7 +70,7 @@ usersCtrl.getUsers = async (req, res) => {
 };
 
 usersCtrl.logout = (req, res) => {
-	res.cookie('jwt', '')
+	res.cookie('t', '')
 	res.send({type_msg: 'success', description: 'You are logout.'});
 };
 
