@@ -3,7 +3,7 @@ const shortId = require('shortid');
 const Schema = mongoose.Schema;
 
 
-const urlSchema = new Schema({
+const UrlSchema = new Schema({
     url: { type: String, required: true },
     shortcode :{ type: String, required:true, default: shortId.generate},
     visits: { type: Number, required: true, default: 0},
@@ -11,4 +11,4 @@ const urlSchema = new Schema({
 });
 
 
-module.exports = model('Url', urlSchema);
+module.exports = model('Url', UrlSchema);
