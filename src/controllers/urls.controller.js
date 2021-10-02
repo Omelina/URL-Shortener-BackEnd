@@ -4,7 +4,7 @@ const Url = require('../models/Url');
 const urlCtrl = {};
 
 
-urlCtrl.createShortcode = async (req, res) => {
+urlCtrl.shortcode = async (req, res) => {
 	const { url} = req.body;
 	const newUrl = new Url({ url });
 	await newUrl.save();
@@ -12,8 +12,20 @@ urlCtrl.createShortcode = async (req, res) => {
 };
 
 urlCtrl.getUrls = async (req, res) => {
-	const urls = await Url.find().sort({clicks:-1}).limit(20);
-	res.send(url);
+	const urls = await Url.find().sort({visits:-1}).limit(20);
+	res.send(urls);
+};
+
+urlCtrl.getUrl = async (req, res) => {
+	const shortUrl = await Url.findOne({shortcode: req.params.shortUrl});
+	
+	if(shortUrl == null){
+		return res.status(404);
+	}
+
+	shortUrl.visits++
+	await shortUrl.save()
+	res.redirect(shortUrl.url);
 };
 
 module.exports = urlCtrl;
