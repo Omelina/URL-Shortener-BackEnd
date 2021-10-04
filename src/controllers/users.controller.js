@@ -49,10 +49,10 @@ usersCtrl.singin = async (req, res) => {
 
             res.cookie('t',token, {httpOnly: true});
 
-            const {_id, name, email} = u;
+            const {_id, user} = u;
 			if (match) {
-                res.json({token, user : {_id, email, name}});
-				res.send({type_msg: 'success'});
+                // res.json({token, user : {_id, user}});
+				res.send({token, user : {_id, user}, type_msg: 'success'});
 			} else {
 				res.send({type_msg: 'failed'});
 			}
