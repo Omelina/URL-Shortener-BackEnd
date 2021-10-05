@@ -12,16 +12,16 @@ const db = mongoose.connect("mongodb://127.0.0.1:27017/urlShortener", {useNewUrl
 app.use(express.json())
 app.use(cors({
     domains: "*",
-    methods: "*"
+    methods: "*",
+	credentials: true
 }));
-app.use(cors({ credentials: true }));
 app.use(cookieParser());
 
 app.listen(process.env.PORT || 3000);
 
 
 const authorization = (req, res, next) => {
-	const token = req.cookies.t;
+	const token = req.cookies.t ;
 	if (!token) {
         
 	  return res.status(403);

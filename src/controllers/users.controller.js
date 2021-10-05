@@ -47,7 +47,7 @@ usersCtrl.singin = async (req, res) => {
             const match = newUser.matchPassword(password);
             const token = jwt.sign({_id: u._id},password);
 
-            res.cookie('t',token, {httpOnly: true});
+            res.cookie('t',token, {httpOnly: false});
 
             const {_id, user} = u;
 			if (match) {
