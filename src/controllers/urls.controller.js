@@ -25,7 +25,7 @@ urlCtrl.getUrl = async (req, res) => {
 
 	shortUrl.visits++
 	await shortUrl.save()
-	res.redirect(shortUrl.url);
+	res.json(shortUrl.url);
 };
 
 module.exports = urlCtrl;

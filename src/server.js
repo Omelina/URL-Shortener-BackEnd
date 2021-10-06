@@ -13,6 +13,11 @@ app.use(express.json())
 app.use(cors({
     domains: "*",
     methods: "*",
+	origin: "*",
+	origin: function(origin, callback){
+		return callback(null, true);
+	  },
+	  optionsSuccessStatus: 200,
 	credentials: true
 }));
 app.use(cookieParser());
